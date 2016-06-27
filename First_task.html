@@ -1,158 +1,251 @@
+<!--
+这个 Pull Request 你直接驳回就好，我这里只是为了方便对照着你的代码说一些问题。英语没你那么6，我就直接用中文说好了。
+首先，你效率真的好高，我前天晚上给你布置的任务，没想到你今天就完成了。
+我本来以为你熟悉插件+熟悉html+完成任务1少说得要三天来着，你这速度让我挺惊喜的。
+而且整体的完成度还不错，虽然算不上是完美，但是对于初学者，看得出你是下了功夫的。
+HTML5 的新标签很新属性用的很熟练，比我当年强多了。
+那么下面就来说说我目前发现的问题吧。
+
+关于 gh-pages 的问题是这样的。
+就是系统会把 `index.html` 作为每个目录的默认页面。
+比如 “https://lyricliu.github.io/First_task/”这个地址，
+他默认打开的是“https://lyricliu.github.io/First_task/index.html”，
+然而服务器找不到这么一个文件，所以就只能404了。
+要访问你这个页面，地址应该是“https://lyricliu.github.io/First_task/First_task.html”。
+
+先来说一些整体的问题。
+首先，你学过编程，应该知道缩进对代码清晰的重要意义，这也可以从你的代码里面体现出来。
+但是我却发现在有些部分（比如70~90行以及其他的一些地方）Tab 和空格混合的缩进存在。
+这样不太好，容易给阅读你代码的人造成困扰（比如当在编辑器里改变 Tab 宽度的时候）。
+并且你在给一些标签的 `name` 属性命名的时候也有些不规范的地方（不要用大写字母，其他属性也是），所以你的代码风格还需要规范。
+如果你愿意，我们就约定这个（https://github.com/ecomfe/spec/）作为我们的代码规范。
+这一次我先用插件帮你整理好缩进关系，你可以删掉我的注释之后复制粘贴到你的文档里。
+这里采用的是和 Python 一致的四空格一缩进，也是我平时习惯的缩进模式。
+可以在 Sublime 里设置缩进格式，在右下角。这样当你按 Tab 键的时候，Sublime 也会帮你自动输入四个空格。
+代码风格问题大致就是这么多。
+-->
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>the First Task</title>
-	<h1>PUPPY HOME(1st headline of website)</h1>
-	<nav>
-		<ul>
-		  <li>
-			<a href="#S1">Puppy love</a>
-		  </li>
-		  <li>
-			<a href="#S2">Socialization</a>
-		  </li>
-		  <li>
-			<a href="#S3">Puppy gallery</a>
-		  </li>
-		  <li>
-			<a href="#S4">Living expense</a>
-		  </li>
-	    </ul>
-	</nav>
+    <meta charset="UTF-8">
+    <title>the First Task</title>
+    <h1>PUPPY HOME(1st headline of website)</h1>
+    <nav>
+        <ul>
+            <li>
+                <a href="#S1">Puppy love</a>
+            </li>
+            <li>
+                <a href="#S2">Socialization</a>
+            </li>
+            <li>
+                <a href="#S3">Puppy gallery</a>
+            </li>
+            <li>
+                <a href="#S4">Living expense</a>
+            </li>
+        </ul>
+    </nav>
 </head>
+<!--
+然后是 <head> 标签。
+在 `<head>` 标签里你放了一些不该放的东西。 `<head>` 标签里面是不应该放用户能通过浏览器主窗体看得见的内容的。
+去这里（https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/head）看看 `<html>` 标签里到底该放些什么吧。
+试着把这里的错误改正，再查找一些资料，
+写一个看起来更“有范儿”的 `<head>` 标签，然后试着用 Sublime 的“代码片段（Snippets）”功能来减少一些重复劳动吧 ~
+-->
+
 <body>
-	<section>
-		<h1><a name="S1">Puppy Love(1st article)</h1>
-		<h2>Definition & Development (1.2nd headline)</h2>
-		<p>
-			<i>from WikiPedia</i>&nbsp&nbsp&nbsp<time datatime="2016-6-30">2016-6-30</time>
-		</p>
-		<p>
-			A puppy is a juvenile dog. Some puppies can weigh 1–3 lb (0.45–1.36 kg), while larger ones can weigh up to 15–23 lb (6.8–10.4 kg). All healthy puppies grow quickly after birth. A puppy's coat color may change as the puppy grows older, as is commonly seen in breeds such as the <strong>Yorkshire Terrier</strong> .<br> In vernacular English, puppy refers specifically to dogs while pup may often be used for other mammals such as seals, <a href="https://en.wikipedia.org/wiki/Giraffe">giraffes</a>, guinea pigs, or even rats.br
-		</p>
-		<p>
-			<img src="/Users/liuyiike/Desktop/html/First_task/img/img2.jpeg" alt="img2" height="200"> 
-		</p>
-		<p>
-			Born after an average of 63 days of gestation, puppies emerge in an <a href="https://en.wikipedia.org/wiki/Amnion">amnion</a> that is bitten off and eaten by the mother dog.[1] <strong>Puppies begin to nurse almost immediately</strong>. If the litter exceeds six puppies, particularly if one or more are obvious runts, human intervention in hand-feeding the stronger puppies is necessary to ensure that the runts get proper nourishment and attention from the mother.<br/> As they reach one month of age, puppies are gradually weaned and begin to eat solid food. The mother may regurgitate partially digested food for the puppies or might let them eat some of her solid food.[2] The mother dog usually refuses to nurse at this stage, though she might let them occasionally nurse for comfort.
-		</p>
-	</section>
-	<section>
-		<h1><a name="S2">Socilaization(2nd article)</h1>
-		<h2>Docking and declawing(2.2nd headline)</h2>
-		<p>
-			<i>from WikiPedia</i>&nbsp&nbsp&nbsp<time datatime="2016-6-29">2016-6-29</time>
-		</p>
-		<p>
-			The practice of docking began primarily as a <strong>reventive measure</strong>p for injury among working dogs. Docking is now primarily performed for purely cosmetic reasons, and some breeds traditionally have their tails cropped anywhere from slightly to almost entirely.[6] <br/>Many countries now ban cropping and docking for cosmetic purposes, like Australia, parts of Canada, the majority of the European countries (Austria, Greece, Finland, Netherlands, Italy, Czech Republic, Turkey, Poland, Slovakia, England, Scotland, Slovenia, Ireland, Norway and Sweden), while others, such as the United States, permit it. The practice is currently opposed by the <a href="https://en.wikipedia.org/wiki/American_Veterinary_Medical_Association">American Veterinary Medical Association</a> .[7] <br/>Some breeders also prefer to declaw the dogs to prevent future injuries caused by scratching, or in the case of dewclaws, ingrown and ripped off nails. Docking and declawing procedures are usually performed within the first few days after birth, by a veterinarian, or by an experienced breeder.
-		</p>
-		<p>
-			<img src="/Users/liuyiike/Desktop/html/First_task/img/img4.jpeg" alt="img2" height="200"> 
-		</p>
-		<ul type="square">
-			<li>companion dog</li>
-			<li>docking</li>
-			<li>sell a pup</li>
-		</ul>
-	</section>
-	<section>
-		<h1><a name="S3">Puppy Gallery(images)</h1>
-		<p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Golden Retrievel </br> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-		<img src="/Users/liuyiike/Desktop/html/First_task/img/img3.jpg" alt="img3" height="200"> 
-	    </p>
-	    <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Golden Retrievel </br> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-		<img src="/Users/liuyiike/Desktop/html/First_task/img/img3.jpg" alt="img3" height="200"> 
-	    </p>
-	    <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Golden Retrievel </br> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-		<img src="/Users/liuyiike/Desktop/html/First_task/img/img3.jpg" alt="img3" height="200"> 
-	    </p>
-	    <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Golden Retrievel </br> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-		<img src="/Users/liuyiike/Desktop/html/First_task/img/img3.jpg" alt="img3" height="200"> 
-	    </p>
-	    <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Golden Retrievel </br> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-		<img src="/Users/liuyiike/Desktop/html/First_task/img/img3.jpg" alt="img3" height="200"> 
-	    </p>
-	    <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Golden Retrievel </br> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-		<img src="/Users/liuyiike/Desktop/html/First_task/img/img3.jpg" alt="img3" height="200"> 
-	    </p>
-	</section>
-	<section>
-		<h1><a name="S4">Living expense(3nd article)</h1>
-		<h2>nursing a puppy(3.2nd headline)</h2>
-		<p>
-			<i>from WikiPedia</i>&nbsp&nbsp&nbsp<time datatime="2016-6-28">2016-6-28</time>
-		</p>
-		<ol>
-			<li>food</li>
-			<li>medicine</li>
-			<li>entertainment</li>
-		</ol>
+    <section>
+        <h1><a name="S1">Puppy Love(1st article)</h1>
+        <h2>Definition & Development (1.2nd headline)</h2>
+        <p>
+            <i>from WikiPedia</i>&nbsp&nbsp&nbsp
+<!--
+这里你似乎是想让内容隔开一点，发现了连续的若干个连续个空格并不能正常显示，于是你是用了`&nbsp;`大法把它们隔开了。
+这样做倒是没错，毕竟我还没让你开始写样式嘛 :)
+不过以后学了样式之后，可就别这样把文本掰开了。这个咱们之后再说。
+还有， `&nbsp;` 和 `&copy;` 后面都要加分号啊……
+-->
+            <time datatime="2016-6-30">2016-6-30</time>
+<!--
+偷偷说一句，这个 `<time>` 标签貌似是 HTML5 新增的标签，我以前都没怎么用过。
+这个是可以结合时区使用的，详细可以看这里（http://www.cnblogs.com/masai1969/p/4355165.html）
+-->
+        </p>
+        <p>
+            A puppy is a juvenile dog. Some puppies can weigh 1–3 lb (0.45–1.36 kg), while larger ones can weigh up to 15–23 lb (6.8–10.4 kg). All healthy puppies grow quickly after birth. A puppy's coat color may change as the puppy grows older, as is commonly seen in breeds such as the <strong>Yorkshire Terrier</strong> .
+            <br> In vernacular English, puppy refers specifically to dogs while pup may often be used for other mammals such as seals, <a href="https://en.wikipedia.org/wiki/Giraffe">giraffes</a>, guinea pigs, or even rats.br
+<!--
+这个`br`是忘了按 Tab 造成的笔误吧 :)
+还有，链接什么的确实没什么问题，可是你看效果图里，有一个链接要求是从新窗口打开。
+可是我看了你整个文档，好像都是从原窗口打开的。
+查查资料，试试让上面这个链接从新窗口打开？
+还有，一个自然段就放在一个 `<p>` 标签里面就好，这里就别用 `<br>` 了。
+-->
+        </p>
+        <p>
+            <img src="/Users/liuyiike/Desktop/html/First_task/img/img2.jpeg" alt="img2" height="200">
+<!--
+这里和下面的图都显示不出来，知道为什么吗？
+给个提示：绝对路径 vs 相对路径。
+-->
+        </p>
+        <p>
+            Born after an average of 63 days of gestation, puppies emerge in an <a href="https://en.wikipedia.org/wiki/Amnion">amnion</a> that is bitten off and eaten by the mother dog.[1] <strong>Puppies begin to nurse almost immediately</strong>. If the litter exceeds six puppies, particularly if one or more are obvious runts, human intervention in hand-feeding the stronger puppies is necessary to ensure that the runts get proper nourishment and attention from the mother.
+            <br/> As they reach one month of age, puppies are gradually weaned and begin to eat solid food. The mother may regurgitate partially digested food for the puppies or might let them eat some of her solid food.[2] The mother dog usually refuses to nurse at this stage, though she might let them occasionally nurse for comfort.
+        </p>
+    </section>
+    <section>
+        <h1><a name="S2">Socilaization(2nd article)</h1>
+        <h2>Docking and declawing(2.2nd headline)</h2>
+        <p>
+            <i>from WikiPedia</i>&nbsp&nbsp&nbsp
+            <time datatime="2016-6-29">2016-6-29</time>
+        </p>
+        <p>
+            The practice of docking began primarily as a <strong>reventive measure</strong>p for injury among working dogs. Docking is now primarily performed for purely cosmetic reasons, and some breeds traditionally have their tails cropped anywhere from slightly to almost entirely.[6]
+            <br/>Many countries now ban cropping and docking for cosmetic purposes, like Australia, parts of Canada, the majority of the European countries (Austria, Greece, Finland, Netherlands, Italy, Czech Republic, Turkey, Poland, Slovakia, England, Scotland, Slovenia, Ireland, Norway and Sweden), while others, such as the United States, permit it. The practice is currently opposed by the <a href="https://en.wikipedia.org/wiki/American_Veterinary_Medical_Association">American Veterinary Medical Association</a> .[7]
+            <br/>Some breeders also prefer to declaw the dogs to prevent future injuries caused by scratching, or in the case of dewclaws, ingrown and ripped off nails. Docking and declawing procedures are usually performed within the first few days after birth, by a veterinarian, or by an experienced breeder.
+        </p>
+        <p>
+            <img src="/Users/liuyiike/Desktop/html/First_task/img/img4.jpeg" alt="img2" height="200">
+        </p>
+        <ul type="square">
+            <li>companion dog</li>
+            <li>docking</li>
+            <li>sell a pup</li>
+        </ul>
+    </section>
+    <section>
+        <h1><a name="S3">Puppy Gallery(images)</h1>
+        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Golden Retrievel </br> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <img src="/Users/liuyiike/Desktop/html/First_task/img/img3.jpg" alt="img3" height="200">
+        </p>
+        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Golden Retrievel </br> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <img src="/Users/liuyiike/Desktop/html/First_task/img/img3.jpg" alt="img3" height="200">
+        </p>
+        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Golden Retrievel </br> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <img src="/Users/liuyiike/Desktop/html/First_task/img/img3.jpg" alt="img3" height="200">
+        </p>
+        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Golden Retrievel </br> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <img src="/Users/liuyiike/Desktop/html/First_task/img/img3.jpg" alt="img3" height="200">
+        </p>
+        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Golden Retrievel </br> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <img src="/Users/liuyiike/Desktop/html/First_task/img/img3.jpg" alt="img3" height="200">
+        </p>
+        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Golden Retrievel </br> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <img src="/Users/liuyiike/Desktop/html/First_task/img/img3.jpg" alt="img3" height="200">
+        </p>
+    </section>
+    <section>
+        <h1><a name="S4">Living expense(3nd article)</h1>
+        <h2>nursing a puppy(3.2nd headline)</h2>
+        <p>
+            <i>from WikiPedia</i>&nbsp&nbsp&nbsp
+            <time datatime="2016-6-28">2016-6-28</time>
+        </p>
+        <ol>
+            <li>food</li>
+            <li>medicine</li>
+            <li>entertainment</li>
+        </ol>
         <h4>below is a tablet with a border=1, to make it readable</h4>
         <table border="1">
-        	<caption>living expense</caption>
-        	<tr>
-        	   <th align="left">module</th>
-        	   <th align="right">amount</th>
-        	   <th align="right">num</th>
-        	</tr>
-        	<tr>
-        	   <td>food</td>
-        	   <td align="right">56</td>
-        	   <td align="right">4</td>
-        	</tr>
-        	<tr>
-        	   <td>entertainment</td>
-        	   <td align="right">44</td>
-        	   <td align="right">6</td>
-        	</tr>
-        	<tr>
-        	   <td>medical</td>
-        	   <td align="right">20</td>
-        	   <td align="right">3</td>
-        	</tr>
-        	<tr>
-        	   <td>sum</td>
-        	   <td align="right" colspan="2">100</td>
-        	</tr>
+            <caption>living expense</caption>
+            <tr>
+                <th align="left">module</th>
+                <th align="right">amount</th>
+                <th align="right">num</th>
+            </tr>
+            <tr>
+                <td>food</td>
+                <td align="right">56</td>
+                <td align="right">4</td>
+            </tr>
+            <tr>
+                <td>entertainment</td>
+                <td align="right">44</td>
+                <td align="right">6</td>
+            </tr>
+            <tr>
+                <td>medical</td>
+                <td align="right">20</td>
+                <td align="right">3</td>
+            </tr>
+            <tr>
+                <td>sum</td>
+                <td align="right" colspan="2">100</td>
+            </tr>
         </table>
-	</section>
+    </section>
     <aside>
-    	<h1>Log up (this is a side bar)</h1>
-    	<h2>Log up here</h2>
-    	<form action="demo_form.asp" method="get" autocomplete="on">
-    		<p>
-    		   email: <input type="text" name="email"><br>
-    		   please fill in right email address<br>
-    		</p>
-    		<p>
-    		   password:<input type="text" name="password">&nbsp&nbsp&nbsp re-enter:<input type="text" name="password"><br>
-    		   6-16 alphabets
-    		</p>	
-    	</form>
-    	<form >
-    		<p>
-    		   gender: &nbsp&nbsp&nbsp<input type="radio" name="gender" value="male">Male &nbsp&nbsp<input type="radio" name="gender" value="female">Female <br>
-    		</p>
-    	    <p>
-    	    	city:&nbsp&nbsp&nbsp <input type="text" list="worklist">
-               <datalist id="worklist">
-               	 <option value="Atlanta"></option>
-               	 <option value="New York"></option>
-               	 <option value="San Francisco"></option>
-               </datalist>
-    	    </p>
+        <h1>Log up (this is a side bar)</h1>
+        <h2>Log up here</h2>
+        <form action="demo_form.asp" method="get" autocomplete="on">
             <p>
-    		   hobby: &nbsp&nbsp&nbsp<input type="checkbox" name="sport" value="sport">Sport &nbsp&nbsp<input type="checkbox" name="movie" value="movie">Movie &nbsp&nbsp<input type="checkbox" name="sleep" value="sleep"> Sleep
-    		</p>
-    	    <p>
-    	       Personal Introduction:  <textarea name="yourintro" cols="30" rows="3"></textarea>
-    	       <input type="submit" value="submit">
-    	    </p>
-    	</form>
+                email:
+                <input type="text" name="email">
+                <br> please fill in right email address
+                <br>
+            </p>
+            <p>
+                password:
+                <input type="text" name="password">&nbsp&nbsp&nbsp re-enter:
+                <input type="text" name="password">
+                <br> 6-16 alphabets
+            </p>
+        </form>
+        <form>
+            <p>
+                gender: &nbsp&nbsp&nbsp
+                <input type="radio" name="gender" value="male">Male &nbsp&nbsp
+                <input type="radio" name="gender" value="female">Female
+                <br>
+            </p>
+            <p>
+                city:&nbsp&nbsp&nbsp
+                <input type="text" list="worklist">
+                <datalist id="worklist">
+                    <option value="Atlanta"></option>
+                    <option value="New York"></option>
+                    <option value="San Francisco"></option>
+                </datalist>
+            </p>
+            <p>
+                hobby: &nbsp&nbsp&nbsp
+                <input type="checkbox" name="sport" value="sport">Sport &nbsp&nbsp
+                <input type="checkbox" name="movie" value="movie">Movie &nbsp&nbsp
+                <input type="checkbox" name="sleep" value="sleep"> Sleep
+            </p>
+            <p>
+                Personal Introduction:
+                <textarea name="yourintro" cols="30" rows="3"></textarea>
+                <input type="submit" value="submit">
+            </p>
+        </form>
+<!--
+我估计你这是把这个表单理解成两个功能，所以拆了两个 `<form>` 写吧 :)
+不过上面那个表单怎么提交呢，下面的那个表单又提交到哪里去呢 :)
+不过说实话，除了上面说的那俩问题以为，其他的你大部分的关于表单的点，该注意的你大致都注意了。
+只是有一点，你得给表单的 `<input>` 的文字提示加 `<label>` 标签，你不能让它们就这么裸着。
+去这里（https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/label）看 `<label>` 标签的用法。
+问我为什么？给你三个字自己去体会：语义化。
+嘿嘿嘿，开玩笑的，这三个字还是个挺深的坑，看一个前端写出的 HTML 专不专业，首当其冲看这个。
+推荐你去看这篇文章（http://ued.ctrip.com/blog/talk-about-semantic.html）入个门。
+对了，还有这篇知乎回答（http://www.zhihu.com/question/20455165）。
+不要着急，语义化不是你一时半会儿能掌握的，先看看有个印象就成。
+
+不过表单的坑确实还挺多的，现在没碰到并不代表你以后也一定碰不到。
+你最好去看看这个（https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Forms/My_first_HTML_form）
+没中文版本，但你绝对能看懂的，要是有闲工夫的话，顺手翻译了它也无妨 ~
+-->
     </aside>
     <footer>
-    	<p>copyright&copy belongs to Lyric</p>
+        <p>copyright&copy belongs to Lyric</p>
     </footer>
 </body>
+
 </html>
